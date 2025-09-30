@@ -44,6 +44,12 @@ public class EchoClient {
 			DatagramPacket DpSend = new DatagramPacket(buffer, buffer.length, ip, portNumber);
 			
 			clientSocket.send(DpSend);  
+			
+			if (userInput.equalsIgnoreCase("exit")) {
+				System.out.println("exiting");
+				clientSocket.close();
+				break;
+			}
 		} 
 		 
 	}
