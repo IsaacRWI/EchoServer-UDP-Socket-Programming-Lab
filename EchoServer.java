@@ -43,6 +43,13 @@ public class EchoServer {
 			String received = new String(DpReceive.getData()).trim();
 			//or
 			//String received = new String(buffer, 0, DpReceive.getLength());
+
+			if (received.equalsIgnoreCase("exit")) {
+				System.out.println("message recieved: " + received);
+				System.out.println("exiting");
+				serverSocket.close();
+				break;
+			}
 			
 			System.out.println("server received " +received.length()+" bytes"+ "\n"+ received);
 			System.out.println("---------------------------------" );
